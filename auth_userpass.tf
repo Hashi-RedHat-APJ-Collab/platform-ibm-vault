@@ -1,13 +1,16 @@
 # auth_userpass.tf
 
-data "vault_auth_backend" "name" {
-    path = "userpass"
+# Reference existing userpass auth backend
+data "vault_auth_backend" "userpass" {
+  path = "userpass"
 }
 
-# userpass auth method
-resource "vault_userpass_auth_backend_user" "user1" {
-  backend = vault_auth_backend.userpass.path
-  username = "watsonxeng"
-  password = var.watsonxeng_password
-  policies = ["ibm-admin"]
+# Create userpass user
+resource "vault_generic_secret" "user1" {
+  path = "auth/${data.vault_auth_backend.userpass.path}/users/watsonxeng"
+  
+  data_json = jsonencode({
+    password = var.watsonxeng_password
+    policies = "ibm-admin"
+  })
 }                   
