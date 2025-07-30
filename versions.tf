@@ -11,7 +11,7 @@ terraform {
     organization = "Hashi-RedHat-APJ-Collab"
 
     workspaces {
-      name = "platform-ibm-vault" 
+      name = "platform-ibm-vault"
     }
   }
 }

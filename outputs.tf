@@ -8,5 +8,12 @@ output "approle_secret_id" {
 
 output "watson_jwt_path" {
   value = vault_jwt_auth_backend.jwt.path
-  
+}
+
+output "watsonenf_userpass_path" {
+  value = vault_generic_secret.user1.path
+}
+
+output "watsonxeng_password" {
+  value = var.watsonxeng_password
 }

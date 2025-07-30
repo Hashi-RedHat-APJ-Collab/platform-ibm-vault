@@ -1,13 +1,13 @@
 variable "tenant" {
   description = "The name of the tenant for which the AppRole is being created."
   type        = string
-  default     = "watsonapprole"  # Default tenant name for the AppRole
+  default     = "watsonapprole" # Default tenant name for the AppRole
 }
 
 variable "namespace" {
   description = "The namespace in which the resources will be created."
   type        = string
-  default     = "admin/hashi-redhat"  # Default namespace for the resources
+  default     = "admin/hashi-redhat" # Default namespace for the resources
 }
 
 variable "vault_cluster_addr" {
@@ -83,13 +83,13 @@ variable "token_max_ttl" {
 # External Groups
 variable "external_groups" {
   description = "Map of external groups to create."
-  type        = map(object({
-    group_name     = string
-    type     = string
-    policies = list(string)
-    alias_name    = string
+  type = map(object({
+    group_name = string
+    type       = string
+    policies   = list(string)
+    alias_name = string
   }))
-  default     = {}
+  default = {}
 }
 
 variable "watsonxeng_password" {
